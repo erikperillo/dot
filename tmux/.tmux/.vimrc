@@ -1,38 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-powerline'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-"required for powerline
-set laststatus=2
-set encoding=utf-8
 " syntax on
 autocmd BufRead,BufNewFile *.tpp set filetype=cpp
-
-set modifiable
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -149,16 +116,3 @@ for c in range(char2nr('A'), char2nr('Z'))
   execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
   execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
 endfor
-
-colorscheme wombat256mod
-
-"tab resizing
-if bufwinnr(1)
-  noremap <silent> <C-H> :vertical resize -4<CR>
-  noremap <silent> <C-L> :vertical resize +4<CR>
-  noremap <silent> <C-J> :resize +4<CR>
-  noremap <silent> <C-K> :resize -4<CR>
-endif
-
-":^)
-set undofile

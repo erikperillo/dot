@@ -1,1 +1,0 @@
-/home/erik/.MEGA/rand/rcs/.tmux

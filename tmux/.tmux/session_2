@@ -1,0 +1,9 @@
+#session1
+new 
+
+neww -n rand
+splitw -h -p 48 -t rand 
+splitw -v -p 33 -t rand
+selectp -L
+
+selectw -t 1

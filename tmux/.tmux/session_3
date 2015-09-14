@@ -1,0 +1,5 @@
+#layout
+neww
+splitw -v -p 16
+splitw -h -p 33
+selectp -U
