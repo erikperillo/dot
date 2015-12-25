@@ -22,8 +22,6 @@ Plugin 'Valloric/YouCompleteMe'
 
 "closing stuff 
 call vundle#end()
-"required
-filetype plugin indent on
 
 
 "VIM-AIRLINE THINGS 
@@ -36,6 +34,9 @@ set t_Co=256
 
 "hide default status bar
 set noshowmode
+
+"cool theme
+let g:airline_theme='tomorrow'
 
 "setting of bar appearance
 if !exists('g:airline_symbols')
@@ -59,3 +60,15 @@ let g:airline_symbols.whitespace = ''
 
 "color syntax
 syntax on
+
+"colorsheme
+colorscheme xoria256
+
+"size of tab (4 spaces)
+set tabstop=4       
+
+"size of spaces when (auto)indenting
+set shiftwidth=4    
+
+"replace tabs for spaces in python source files
+autocmd Filetype python setlocal expandtab
