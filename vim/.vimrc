@@ -19,6 +19,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 "auto completion
 Plugin 'Valloric/YouCompleteMe'
+"syntax checking
+Plugin 'scrooloose/syntastic'
 
 "closing stuff 
 call vundle#end()
@@ -38,10 +40,12 @@ set noshowmode
 "cool theme
 let g:airline_theme='tomorrow'
 
-"setting of bar appearance
+"settings for bar appearance
+"checking existance before assigning
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+"removing all fancy symbols of status line
 let g:airline_left_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -54,6 +58,22 @@ let g:airline_symbols.paste = ''
 let g:airline_symbols.paste = ''
 let g:airline_symbols.paste = ''
 let g:airline_symbols.whitespace = ''
+
+
+"YOUCOMPLETEME THINGS
+"global configuration file for C-family languages
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+"close annoying preview window
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+
+"SYNTASTIC THINGS
+"use python 2 syntax checker by default
+let g:syntastic_python_python_exec = '/usr/bin/python2.7'
+
+"checks syntax after exiting insert mode
+autocmd InsertLeave * :SyntasticCheck
 
 
 "OTHER THINGS
