@@ -72,9 +72,6 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "use python 2 syntax checker by default
 let g:syntastic_python_python_exec = '/usr/bin/python2.7'
 
-"checks syntax after exiting insert mode
-autocmd InsertLeave * :SyntasticCheck
-
 
 "OTHER THINGS
 
@@ -84,7 +81,13 @@ syntax on
 "colorsheme
 colorscheme xoria256
 
-"size of tab (4 spaces)
+"sets a visual column for delimiting text width
+set colorcolumn=81
+
+"highlighting previous column with a dark gray color
+highlight ColorColumn ctermbg=235
+
+"sets size of tab (4 spaces)
 set tabstop=4       
 
 "size of spaces when (auto)indenting
@@ -92,3 +95,11 @@ set shiftwidth=4
 
 "replace tabs for spaces in python source files
 autocmd Filetype python setlocal expandtab
+
+"panes resizing
+if bufwinnr(1)
+  noremap <silent> <C-H> :vertical resize -4<CR>
+  noremap <silent> <C-L> :vertical resize +4<CR>
+  noremap <silent> <C-J> :resize +4<CR>
+  noremap <silent> <C-K> :resize -4<CR>
+endif
