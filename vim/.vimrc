@@ -1,7 +1,6 @@
 "VUNDLE THINGS
 
 "settings
-
 "be iMproved, required
 set nocompatible              
 
@@ -61,6 +60,7 @@ let g:airline_symbols.whitespace = ''
 
 
 "YOUCOMPLETEME THINGS
+
 "global configuration file for C-family languages
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
@@ -69,6 +69,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 
 "SYNTASTIC THINGS
+
 "use python 2 syntax checker by default
 let g:syntastic_python_python_exec = '/usr/bin/python2.7'
 
