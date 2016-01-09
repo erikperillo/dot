@@ -413,10 +413,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " 256-color cterm fixes for theme colors
   if !has("gui_running") && &t_Co == 256
-    hi CursorLine               ctermbg=235
+    hi CursorLine               ctermbg=234
     hi DiffChange               ctermbg=094
     hi Folded                   ctermbg=NONE
-    hi Normal                   ctermbg=234
+    hi Normal                   ctermbg=233
     hi StatusLine   ctermfg=239
     hi StatusLineNC ctermfg=236
     hi TabLineFill              ctermbg=234

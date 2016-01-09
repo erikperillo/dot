@@ -1,1 +1,6 @@
 set hintchars="abcdefghijklmnopqrstuvwxyz"
+
+"set gui=nonavigation
+
+" Ctrl-a
+inoremap <C-a> <C-Home><C-S-End>

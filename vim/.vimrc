@@ -80,7 +80,7 @@ let g:syntastic_python_python_exec = '/usr/bin/python2.7'
 syntax on
 
 "colorsheme
-colorscheme xoria256
+colorscheme jellybeans
 
 "sets a visual column for delimiting text width
 set colorcolumn=81
