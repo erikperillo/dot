@@ -37,7 +37,7 @@ set t_Co=256
 set noshowmode
 
 "cool theme
-let g:airline_theme='tomorrow'
+"let g:airline_theme='tomorrow'
 
 "settings for bar appearance
 "checking existance before assigning
@@ -64,17 +64,24 @@ let g:airline_symbols.whitespace = ''
 "global configuration file for C-family languages
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
+"use python completion
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
+
 "close annoying preview window
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 
 "SYNTASTIC THINGS
 
-"use python 2 syntax checker by default
-let g:syntastic_python_python_exec = '/usr/bin/python2.7'
+"use python 3 syntax checker by default
+let g:syntastic_python_python_exec = '/usr/bin/python3'
 
 
 "OTHER THINGS
+
+"latex stuff
+let g:tex_flavor = "latex"
+set suffixes+=.log,.aux,.bbl,.blg,.idx,.ilg,.ind,.out,.pdf
 
 "color syntax
 syntax on
@@ -96,6 +103,9 @@ set shiftwidth=4
 
 "replace tabs for spaces in python source files
 autocmd Filetype python setlocal expandtab
+
+"highlights .tpp files as .cpp files
+autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 
 "panes resizing
 if bufwinnr(1)
