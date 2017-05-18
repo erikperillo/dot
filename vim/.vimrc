@@ -88,6 +88,8 @@ syntax on
 
 "colorsheme
 colorscheme jellybeans
+"for better working with colorscheme
+set background=dark
 
 "sets a visual column for delimiting text width
 set colorcolumn=81
