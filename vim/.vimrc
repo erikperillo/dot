@@ -224,8 +224,8 @@ nnoremap <silent> <A-O> :resize -4<CR>
 "nnoremap <silent> u :resize -4<CR>
 
 "split fullscreen toggle
-noremap <silent> <A-B> <C-\><C-n><C-w>o
-"noremap <silent> b <C-\><C-n><C-w>o
+nnoremap <silent> <A-b> :ZoomWinTabToggle<CR>
+"nnoremap <silent> b :ZoomWinTabToggle
 
 "terminal scroll buffer size
 let g:terminal_scrollback_buffer_size=100000
