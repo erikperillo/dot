@@ -2,44 +2,6 @@
 # ~/.bashrc
 #
 
-#compresses pdf file
-compress_pdf()
-{
-	local file=$1
-	[ -z $file ] && { echo "compress_pdf: need to specify file!"; return; }
-	local name=$(echo "$file" | rev | cut -f1 --complement -d. | rev)
-
-	pdf2ps "$name".{pdf,ps} || return;
-	ps2pdf "$name".{ps,compressed.pdf} || return;
-	rm "$name".ps || return;
-}
-
-#git update
-#add files, commit with message and push to master branch on repo of current dir
-gu()
-{
-	local commit_message=$1
-	local branch=$2
-
-	if [[ $(git branch | wc -l) -gt 1 ]]; then
-		[[ -z $branch ]] && \
-		{ echo "gu: need to specify branch! (more than one detected)"; return; }
-	else
-		branch="master"
-	fi
-
-	git add . && git commit -m "$commit_message" && git push origin $branch
-}
-
-#removes alias for octave-cli, runs octave with gui and then alias it again
-run_octave_gui()
-{
-	unalias octave
-	octave
-	alias octave="octave --no-gui"
-}
-
-
 #if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -49,23 +11,13 @@ PS1="\W| "
 #append my bin to path
 export PATH=$PATH:$(pwd)/bin
 
-#nvim stuff
-export NVIM_PYTHON_LOG_FILE=/tmp/log
-export NVIM_PYTHON_LOG_LEVEL=DEBUG
-
-#my GPG key
-export GPGKEYID=E9866FA5F022799015F34C2ED64E5C7F01FCC023
-
 #aliases
 #colored output for ls
 alias ls='ls --color=auto'
 #proper colors for tmux
 alias tmux="tmux -2"
-#start octave without gui by default
-alias octave="octave --no-gui"
-alias octave-gui="run_octave_gui"
 #avoid catastrophes
 alias rm="rm -I"
 #:^)
 alias emacs="vim"
-alias vim="nvim"
+#alias vim="nvim"
