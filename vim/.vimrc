@@ -19,7 +19,17 @@ Plug 'vim-airline/vim-airline-themes'
 "fullscreen toggling on/off for panes
 Plug 'troydm/zoomwintab.vim'
 
+"file navigation
+Plug 'scrooloose/nerdtree'
+
+"unite+codesearch
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make'}
+Plug '~/.vim/unite-codesearch'
+
 call plug#end()
+
+let $GIT_TERMINAL_PROMPT=1
 
 
 "SUPERTAB OPTIONS
@@ -84,36 +94,56 @@ let g:airline_powerline_fonts=0
 "let g:airline_symbols.whitespace = ''
 
 
+"NERDTREE STUFF
+"size of window
+:let g:NERDTreeWinSize=24
+
+
+"UNITE
+let g:unite_enable_start_insert = 1
+let g:unite_update_time = 300
+
+
 "LEADER STUFF
 "setting up leader to space
 let mapleader="\<SPACE>"
 
 "search and replace
-nmap <Leader>s :%s//<Left>
-nmap <Leader>S :s//<Left>
+noremap <Leader>s :%s/<Left>
+noremap <Leader>S :s/<Left>
 
 "open file
-nmap <Leader>e :e <Right>
+noremap <Leader>e :e <Right>
 
 "write file
-nmap <Leader>w :w <Return>
+noremap <Leader>w :w <Return>
 
 "split panes
-nmap <Leader>v :vsp <Right>
-nmap <Leader>h :sp <Right>
+noremap <Leader>v :vsp <Right>
+noremap <Leader>h :sp <Right>
 
 "open in new tab
-nmap <Leader>t :tabedit <Right>
+noremap <Leader>t :tabedit <Right>
 
 "quit nvim
-nmap <Leader>q :q <Return>
+noremap <Leader>q :q <Return>
 
 "turn highlight off for search
-nmap <leader>H :set hlsearch!<cr>
+noremap <leader>H :set hlsearch!<cr>
 
 "copy to system clipboard
-nmap <leader>y "+y
+noremap <leader>y "+y
 
+"related files
+noremap <unique> <leader>rf :RelatedFilesWindow<cr>
+
+"close syntastic window
+noremap <unique> <leader>sr :SyntasticReset<CR>
+
+"nerdtree
+noremap <unique> <leader>nT :NERDTreeToggle<CR>
+noremap <unique> <leader>nt :NERDTreeFocus<CR>
+noremap <unique> <leader>nf :NERDTreeFind<CR>
 
 "RANDOM STUFF
 " let's not look back
@@ -125,12 +155,13 @@ set showmatch
 "show the line and column numbers of the cursor
 set ruler
 
-"insert spaces when TAB is pressed
-set expandtab
 "render TABs using this many spaces
 set tabstop=4
+autocmd FileType go set tabstop=4
 "indentation amount for < and > commands
 set shiftwidth=4
+"insert spaces when TAB is pressed
+set expandtab
 
 "no beeps.
 set noerrorbells
@@ -166,35 +197,35 @@ syntax on
 highlight ColorColumn ctermbg=235
 
 "alternative navigation among splits
-"nmap <A-J> <C-\><C-n><C-w>j
-"nmap <A-K> <C-\><C-n><C-w>k
-"nmap <A-L> <C-\><C-n><C-w>l
-"nmap <A-H> <C-\><C-n><C-w>h
+nnoremap <silent> <A-j> :wincmd j<CR>
+nnoremap <silent> <A-k> :wincmd k<CR>
+nnoremap <silent> <A-l> :wincmd l<CR>
+nnoremap <silent> <A-h> :wincmd h<CR>
 "some terminals require this as alt...
-nmap <silent> j :wincmd j<CR>
-nmap <silent> k :wincmd k<CR>
-nmap <silent> l :wincmd l<CR>
-nmap <silent> h :wincmd h<CR>
+"nnoremap <silent> j :wincmd j<CR>
+"nnoremap <silent> k :wincmd k<CR>
+"nnoremap <silent> l :wincmd l<CR>
+"nnoremap <silent> h :wincmd h<CR>
 
 "alternative navigation among tabs
-"nmap <silent> <A-N> gT
-"nmap <silent> <A-M> gt
-nmap <silent> n gT
-nmap <silent> m gt
+nnoremap <silent> <A-N> gT
+nnoremap <silent> <A-M> gt
+"nnoremap <silent> n gT
+"nnoremap <silent> m gt
 
 "splits resizing
-"nmap <silent> <A-Y> :vertical resize -4<CR>
-"nmap <silent> <A-U> :vertical resize +4<CR>
-"nmap <silent> <A-I> :resize +4<CR>
-"nmap <silent> <A-O> :resize -4<CR>
-nmap <silent> y :vertical resize -4<CR>
-nmap <silent> o :vertical resize +4<CR>
-nmap <silent> i :resize +4<CR>
-nmap <silent> u :resize -4<CR>
+nnoremap <silent> <A-Y> :vertical resize -4<CR>
+nnoremap <silent> <A-U> :vertical resize +4<CR>
+nnoremap <silent> <A-I> :resize +4<CR>
+nnoremap <silent> <A-O> :resize -4<CR>
+"nnoremap <silent> y :vertical resize -4<CR>
+"nnoremap <silent> o :vertical resize +4<CR>
+"nnoremap <silent> i :resize +4<CR>
+"nnoremap <silent> u :resize -4<CR>
 
 "split fullscreen toggle
-"nmap <silent> <A-B> <C-\><C-n><C-w>o
-nmap <silent> b <C-\><C-n><C-w>o
+noremap <silent> <A-B> <C-\><C-n><C-w>o
+"noremap <silent> b <C-\><C-n><C-w>o
 
 "terminal scroll buffer size
 let g:terminal_scrollback_buffer_size=100000
@@ -217,10 +248,6 @@ set numberwidth=2
 set splitbelow
 "vertical split to right of current
 set splitright
-
-"disable relative line number for latex files for performance reasons
-au BufRead,BufNewFile *.tex set norelativenumber
-au BufRead,BufNewFile *.bib set norelativenumber
 
 "highlight all tabs and trailing whitespace characters
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
