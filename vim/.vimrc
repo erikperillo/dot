@@ -22,10 +22,9 @@ Plug 'troydm/zoomwintab.vim'
 "file navigation
 Plug 'scrooloose/nerdtree'
 
-"unite+codesearch
+"unite
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make'}
-Plug '~/.vim/unite-codesearch'
 
 call plug#end()
 
@@ -252,5 +251,8 @@ set splitright
 "highlight all tabs and trailing whitespace characters
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
+
+"proper background color
+set t_ut=
 
 filetype plugin indent on
