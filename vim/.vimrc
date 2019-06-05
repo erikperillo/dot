@@ -207,16 +207,16 @@ nnoremap <silent> <A-h> :wincmd h<CR>
 "nnoremap <silent> h :wincmd h<CR>
 
 "alternative navigation among tabs
-nnoremap <silent> <A-N> gT
-nnoremap <silent> <A-M> gt
+nnoremap <silent> <A-n> gT
+nnoremap <silent> <A-m> gt
 "nnoremap <silent> n gT
 "nnoremap <silent> m gt
 
 "splits resizing
-nnoremap <silent> <A-Y> :vertical resize -4<CR>
-nnoremap <silent> <A-U> :vertical resize +4<CR>
-nnoremap <silent> <A-I> :resize +4<CR>
-nnoremap <silent> <A-O> :resize -4<CR>
+nnoremap <silent> <A-y> :vertical resize -4<CR>
+nnoremap <silent> <A-o> :vertical resize +4<CR>
+nnoremap <silent> <A-i> :resize +4<CR>
+nnoremap <silent> <A-u> :resize -4<CR>
 "nnoremap <silent> y :vertical resize -4<CR>
 "nnoremap <silent> o :vertical resize +4<CR>
 "nnoremap <silent> i :resize +4<CR>
@@ -252,6 +252,8 @@ set splitright
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
+"proper colors
+set term=xterm-256color
 "proper background color
 set t_ut=
 

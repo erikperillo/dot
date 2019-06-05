@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/erik/gwms-cli/gwmscli'
+let g:netrw_dirhist_2='/home/erik/papers-infos/results'
+let g:netrw_dirhist_3='/home/erik/code/litrev/papers-infos/results'
+let g:netrw_dirhist_4='/home/erik/proj/gaiia-api/gaiia/backend/procqueue'
+let g:netrw_dirhist_5='/home/erik/rnn_cropid_experiment/data/images_features'
+let g:netrw_dirhist_6='/home/erik/proj/gaiia-wms/gwms/backend/procqueue'

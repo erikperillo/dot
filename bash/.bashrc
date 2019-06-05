@@ -11,6 +11,8 @@ PS1="\W| "
 #append my bin to path
 export PATH=$PATH:$(pwd)/bin
 
+export TERM="xterm-256color"
+
 #aliases
 #colored output for ls
 alias ls='ls --color=auto'
