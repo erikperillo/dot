@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab'
 
 "code completion
-"Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme'
 
 "syntax highlighing
 Plug 'vim-syntastic/syntastic'
@@ -22,9 +22,15 @@ Plug 'troydm/zoomwintab.vim'
 "file navigation
 Plug 'scrooloose/nerdtree'
 
+"latex utilities
+Plug 'lervag/vimtex'
+
 "unite
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make'}
+
+"vue highlighing
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -58,6 +64,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"syntatic checkers
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,E265,E303,E226,E713,E305,W504,E722,E731,E502,E401,E261,E262,E227,E228'
 
 
 "VIM-AIRLINE OPTIONS
@@ -138,11 +148,13 @@ noremap <unique> <leader>rf :RelatedFilesWindow<cr>
 
 "close syntastic window
 noremap <unique> <leader>sr :SyntasticReset<CR>
+noremap <unique> <leader>st :SyntasticToggleMode<CR>
 
 "nerdtree
 noremap <unique> <leader>nT :NERDTreeToggle<CR>
 noremap <unique> <leader>nt :NERDTreeFocus<CR>
 noremap <unique> <leader>nf :NERDTreeFind<CR>
+
 
 "RANDOM STUFF
 " let's not look back
@@ -190,7 +202,7 @@ set background=dark
 syntax on
 
 "sets a visual column for delimiting text width
-"set colorcolumn=81
+set colorcolumn=81
 
 "highlighting previous column with a dark gray color
 highlight ColorColumn ctermbg=235
